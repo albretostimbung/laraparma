@@ -107,7 +107,7 @@ class ProductController extends Controller
                     'photo' => $photoPath
                 ]);
 
-                Product::create($validated + [
+                $product->update($validated + [
                     'slug' => Str::slug($request->name),
                 ]);
             });

@@ -25,7 +25,7 @@
                         </x-nav-link>
                     @endrole
 
-                    <x-nav-link :href="route('admin.product-transactions.index')" :active="request()->routeIs('admin.product-transactions.*')">
+                    <x-nav-link :href="route('product-transactions.index')" :active="request()->routeIs('product-transactions.*')">
                         {{ auth()->user()->hasRole('owner') ? __('Apotek Orders') : __('My Orders') }}
                     </x-nav-link>
                 </div>
@@ -90,6 +90,19 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            @role('owner')
+                <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                    {{ __('Manage Categories') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')">
+                    {{ __('Manage Products') }}
+                </x-responsive-nav-link>
+            @endrole
+
+            <x-responsive-nav-link :href="route('product-transactions.index')" :active="request()->routeIs('product-transactions.index')">
+                {{ auth()->user()->hasRole('owner') ? __('Apotek Orders') : __('My Orders') }}
             </x-responsive-nav-link>
         </div>
 

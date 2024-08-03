@@ -128,7 +128,7 @@
                                         </a>
                                     @else
                                         <form
-                                            action="{{ route('admin.product-transactions.update', $productTransaction) }}"
+                                            action="{{ route('product-transactions.update', $productTransaction) }}"
                                             method="POST" class="inline ml-4">
                                             @csrf
                                             @method('put')
